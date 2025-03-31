@@ -165,3 +165,4 @@ D:\git\dot-net-microservices\PlatformService\obj\Debug\net9.0\refint\PlatformSer
 D:\git\dot-net-microservices\PlatformService\obj\Debug\net9.0\PlatformService.pdb
 D:\git\dot-net-microservices\PlatformService\obj\Debug\net9.0\PlatformService.genruntimeconfig.cache
 D:\git\dot-net-microservices\PlatformService\obj\Debug\net9.0\ref\PlatformService.dll
+D:\git\dot-net-microservices\PlatformService\obj\Debug\net9.0\PlatformService.sourcelink.json

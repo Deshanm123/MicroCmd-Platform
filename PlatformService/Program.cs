@@ -1,11 +1,14 @@
 using Microsoft.EntityFrameworkCore;
 using PlatformService.Data;
+using PlatformService.Data.Interface;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+builder.Services.AddScoped<IPlatformInstanceRepoInterface, PlatformInstanceRepo>();
+
 
 //Adding in memory database 
 builder.Services.AddDbContext<ApplicationDbContext>(
@@ -18,8 +21,8 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    InitializePlatformDb.InitPopulation(app);
 }
-
 app.UseHttpsRedirection();
 
 // var summaries = new[]

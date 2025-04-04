@@ -4,7 +4,7 @@ using PlatformService.Models;
 
 namespace PlatformService.Data
 {
-    public class PlatformInstanceRepo : IPlatformInstanceRepoInterface
+    public class PlatformInstanceRepo : IPlatformInstanceRepo
     {
         private readonly ApplicationDbContext _context;
         public PlatformInstanceRepo(ApplicationDbContext context)

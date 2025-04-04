@@ -5,10 +5,10 @@ using PlatformService.Data.Interface;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
-builder.Services.AddScoped<IPlatformInstanceRepoInterface, PlatformInstanceRepo>();
+builder.Services.AddControllers();
 
+builder.Services.AddScoped<IPlatformInstanceRepo, PlatformInstanceRepo>();
+ 
 
 //Adding in memory database 
 builder.Services.AddDbContext<ApplicationDbContext>(
@@ -24,10 +24,15 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
     InitializePlatformDb.InitPopulation(app);
 }
+
+app.MapControllers();
 app.UseHttpsRedirection();
+
+app.UseEndpoints(endpoints => {
+    endpoints.MapControllers();
+});
 
 app.Run();
 

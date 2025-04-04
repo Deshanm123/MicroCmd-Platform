@@ -3,7 +3,7 @@ using PlatformService.Models;
 
 namespace PlatformService.Data.Interface
 {
-    public interface IPlatformInstanceRepoInterface
+    public interface IPlatformInstanceRepo
     {
 
         IEnumerable<PlatformInstance> GetAllPlatformInstances();

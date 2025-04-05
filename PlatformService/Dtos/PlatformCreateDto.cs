@@ -2,18 +2,15 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PlatformService.Dtos
 {
+    //Dto should not have any model validationthey are strictly for data transfer only
     public class PlatformCreateDto
     {
-         [Key]
         public int Id{set;get;}
 
-        [Required]
-        public string Name{set;get;} = "unknown platform";
+        public string? Name{set;get;} 
         
-        [Required]
-        public string Publisher{set;get;}= "unknown publisher";
+        public string? Publisher{set;get;}
         
-        [Required]
         public double Cost{set;get;}
     }
 }

@@ -8,7 +8,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services.AddScoped<IPlatformInstanceRepo, PlatformInstanceRepo>();
- 
 
 //Adding in memory database 
 builder.Services.AddDbContext<ApplicationDbContext>(
@@ -19,7 +18,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(
 //assembly meaning all the dll files, that contains classes,interfaces and etc inotherwords we are passing all the files
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-var app = builder.Build(); 
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -27,12 +26,13 @@ if (app.Environment.IsDevelopment())
     InitializePlatformDb.InitPopulation(app);
 }
 
-app.MapControllers();
 app.UseHttpsRedirection();
 
-app.UseEndpoints(endpoints => {
-    endpoints.MapControllers();
-});
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}"
+);
+
+app.MapControllers();
 
 app.Run();
-
